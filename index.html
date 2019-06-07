@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<title>Title</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+    <style>
+		h1{
+			text-align: center;
+		}
+		.content{
+			text-align: center;
+			background-image: -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 6%, hsla(0,0%,100%, .1) 7.5%), -webkit-repeating-linear-gradient(left, hsla(0,0%, 0%,0) 0%, hsla(0,0%, 0%,0) 4%, hsla(0,0%, 0%,.03) 4.5%), -webkit-repeating-linear-gradient(left, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.15) 2.2%), linear-gradient(180deg, hsl(0,0%,78%) 0%, hsl(0,0%,90%) 47%, hsl(0,0%,78%) 53%, hsl(0,0%,70%)100%);
+    	padding: 50px;
+		}
+		.content table{
+			text-align: center;
+		}
+		.button-box{
+			position: relative;
+			height: 300px;
+		}
+		.upup{
+			position: absolute;
+			/* background: rgb(194, 194, 185) !important; */
+			width: 200px;
+			height: 200px;
+			border-radius: 200px;
+			border: 0;
+			box-shadow: 0 10px 2px grey;
+			display: block;
+			text-align: center;
+			margin: auto;
+			top: 0px;
+			transition: all ease 0.3s;
+			left: 0;
+			right: 0;
+			margin-left: auto;
+			margin-right: auto;
+			background-image: -webkit-radial-gradient( 50% 0%, 8% 50%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%), -webkit-radial-gradient( 50% 100%, 12% 50%, hsla(0,0%,100%,.6) 0%, hsla(0,0%,100%,0) 100%), -webkit-radial-gradient( 0% 50%, 50% 7%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%), -webkit-radial-gradient( 100% 50%, 50% 5%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%), -webkit-repeating-radial-gradient( 50% 50%, 100% 100%, hsla(0,0%, 0%,0) 0%, hsla(0,0%, 0%,0) 3%, hsla(0,0%, 0%,.1) 3.5%), -webkit-repeating-radial-gradient( 50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 6%, hsla(0,0%,100%,.1) 7.5%), -webkit-repeating-radial-gradient( 50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.2) 2.2%), -webkit-radial-gradient( 50% 50%, 200% 50%, hsla(0,0%,90%,1) 5%, hsla(0,0%,85%,1) 30%, hsla(0,0%,60%,1) 100%);
+			
+
+		}
+		.upup:focus{
+			outline:none;
+			outline-color: rgba(255,255,255,0);
+		}
+
+		.upup::before{
+			content: 'Press';
+			
+		}
+		.downdown{
+			position: absolute;
+			/* background: rgb(194, 194, 185) !important; */
+			width: 200px;
+			height: 200px;
+			border-radius: 200px;
+			border: 0;
+			display: block;
+			text-align: center;
+			margin: auto;
+			box-shadow: 0 10px 2px grey;
+			top: 3px;
+			transition: all ease 0.3s;
+			left: 0;
+			right: 0;
+			margin-left: auto;
+			margin-right: auto;
+						background-image: -webkit-radial-gradient( 50% 0%, 8% 50%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%), -webkit-radial-gradient( 50% 100%, 12% 50%, hsla(0,0%,100%,.6) 0%, hsla(0,0%,100%,0) 100%), -webkit-radial-gradient( 0% 50%, 50% 7%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%), -webkit-radial-gradient( 100% 50%, 50% 5%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%), -webkit-repeating-radial-gradient( 50% 50%, 100% 100%, hsla(0,0%, 0%,0) 0%, hsla(0,0%, 0%,0) 3%, hsla(0,0%, 0%,.1) 3.5%), -webkit-repeating-radial-gradient( 50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 6%, hsla(0,0%,100%,.1) 7.5%), -webkit-repeating-radial-gradient( 50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.2) 2.2%), -webkit-radial-gradient( 50% 50%, 200% 50%, hsla(0,0%,90%,1) 5%, hsla(0,0%,85%,1) 30%, hsla(0,0%,60%,1) 100%);
+
+
+		}
+		.downdown:focus{
+			outline:none;
+			outline-color: rgba(255,255,255,0);
+		}
+
+		.downdown:active{
+			top: 9px;
+			transition: all ease 0.3s;
+			box-shadow: 0 1px 2px grey;
+		}
+
+		.downdown::before{
+			content: 'UnPress';
+			color: red;
+			font-weight: 700;
+		}
+
+		.title , #receive {
+			background: #000;
+			color: green;
+			padding: 5px 0;
+			
+		}
+
+		#receive{
+			margin-bottom: 15px;
+		}
+	</style>
+
+	</head>
+  <body>
+
+	<div class="contianer">
+		<div class="row">
+			<div class="col-xs-12 mx-auto">
+				<h1>LabView workspace</h1>
+				<div class="content">
+					<br>
+					<div class="button-box">
+						<button type=button id='updown' class='upup mt-5 metal radial'></button>
+					</div>
+					
+					<div class="title">Receive action:</div>
+					<div id="receive">None</div>
+					<button type="button" id='StartButton' class="btn btn-primary start">Start</button>
+					<!-- <button type=button id='StartButton' class='start'>Start</button> -->
+					<button type=button id='PauseButton' class="btn btn-secondary pause">Pause</button>
+					<!-- <button type=button id='UnpauseButton'>Unpause</button> -->
+				
+					<button type=button id='AbortButton' class = 'btn btn-danger'>Abort</button>
+				
+				</div>
+			</div>
+			
+		</div>
+
+	</div>
+			
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="js/index.js"></script>
+  </body>
+</html>
