@@ -8,7 +8,7 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
 		h1{
 			text-align: center;
@@ -25,7 +25,7 @@
 			position: relative;
 			height: 300px;
 		}
-		.upup{
+		.upup,.downdown{
 			position: absolute;
 			/* background: rgb(194, 194, 185) !important; */
 			width: 200px;
@@ -51,29 +51,26 @@
 			outline-color: rgba(255,255,255,0);
 		}
 
-		.upup::before{
-			content: 'Press';
-			
-		}
-		.downdown{
-			position: absolute;
-			/* background: rgb(194, 194, 185) !important; */
-			width: 200px;
-			height: 200px;
-			border-radius: 200px;
-			border: 0;
-			display: block;
-			text-align: center;
-			margin: auto;
-			box-shadow: 0 10px 2px grey;
-			top: 3px;
-			transition: all ease 0.3s;
-			left: 0;
-			right: 0;
-			margin-left: auto;
-			margin-right: auto;
-						background-image: -webkit-radial-gradient( 50% 0%, 8% 50%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%), -webkit-radial-gradient( 50% 100%, 12% 50%, hsla(0,0%,100%,.6) 0%, hsla(0,0%,100%,0) 100%), -webkit-radial-gradient( 0% 50%, 50% 7%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%), -webkit-radial-gradient( 100% 50%, 50% 5%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%), -webkit-repeating-radial-gradient( 50% 50%, 100% 100%, hsla(0,0%, 0%,0) 0%, hsla(0,0%, 0%,0) 3%, hsla(0,0%, 0%,.1) 3.5%), -webkit-repeating-radial-gradient( 50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 6%, hsla(0,0%,100%,.1) 7.5%), -webkit-repeating-radial-gradient( 50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.2) 2.2%), -webkit-radial-gradient( 50% 50%, 200% 50%, hsla(0,0%,90%,1) 5%, hsla(0,0%,85%,1) 30%, hsla(0,0%,60%,1) 100%);
+		.upup .fa-power-off:before {
+    font-size: 4rem;
+		color: darkgray;
+		transition: all ease 0.3s;
+		
 
+		}
+		.downdown .fa-power-off:before {
+    font-size: 4rem;
+		color: white;
+		
+		text-shadow:0px 0px 8px #2323fb8f, 0px 0px 24px #5858f57a, 0px 0px 48px #8c8cff,0px 0px 72px #a7a7f3;
+		transition: all ease 0.3s;
+
+		}
+
+	
+		.downdown{
+
+			top: 3px;
 
 		}
 		.downdown:focus{
@@ -85,12 +82,6 @@
 			top: 9px;
 			transition: all ease 0.3s;
 			box-shadow: 0 1px 2px grey;
-		}
-
-		.downdown::before{
-			content: 'UnPress';
-			color: red;
-			font-weight: 700;
 		}
 
 		.title , #receive {
@@ -113,13 +104,16 @@
 			<div class="col-xs-12 mx-auto">
 				<h1>LabView workspace</h1>
 				<div class="content">
-					<br>
-					<div class="button-box">
-						<button type=button id='updown' class='upup mt-5 metal radial'></button>
-					</div>
-					
 					<div class="title">Receive action:</div>
 					<div id="receive">None</div>
+					<br>
+					<div class="button-box">
+						<button type=button id='updown' class='upup mt-5 metal radial'>
+							<i class="fa fa-power-off" aria-hidden="true"></i>
+						</button>
+					</div>
+					
+					
 					<button type="button" id='StartButton' class="btn btn-primary start">Start</button>
 					<!-- <button type=button id='StartButton' class='start'>Start</button> -->
 					<button type=button id='PauseButton' class="btn btn-secondary pause">Pause</button>
