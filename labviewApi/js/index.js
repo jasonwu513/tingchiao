@@ -1,120 +1,68 @@
 //Disable async to allow for sequential behavior
 async: false;
 //Execute the following code once page is fully loaded
+
+
+// 畫面上的button 按下後執行 SendCommand function
+
 $(document).ready(function()
 	{
-		$( "#StartButton" ).click(SendStart);
-		$( "#PauseButton" ).click(SendPause);
-		// $( "#UnpauseButton" ).click(SendUnpause);
-		$( "#AbortButton" ).click(SendAbort);
-		mouseUpDown()
+	$("button").click(SendCommand);
+		
 	}
 )
 
-//update gets the data from the URL
-function SendStart()
-{
-	if ($(this).hasClass("start")){
-		URL = document.URL;
-		URL = URL.replace("index.html", "") + "start";
-		$.getJSON(URL, function (data) {
-			$('#receive').text(data.cmd);
-		}
-		);
-		$(this).text('stop');
-		$(this).addClass('stop btn-danger');
-		$(this).removeClass('start');
-	}else{
-		URL = document.URL;
-		URL = URL.replace("index.html", "") + "stop";
-		$.getJSON(URL, function (data) {
-			$('#receive').text(data.cmd);
-		}
-		);
-		$(this).text('start');
-		$(this).addClass('start btn-primary');
-		$(this).removeClass('stop btn-danger');
-	}
-}
-	
-	
-function SendPause()
-{
-	
-	if ($("#PauseButton").hasClass("pause")) {
-		URL = document.URL;
-		URL = URL.replace("index.html", "") + "pause";
-		console.log(URL);
-		$.getJSON(URL, function (data) {
-			$('#receive').text(data.cmd);
-		}
-		);
-		
-		$("#PauseButton").text('UnPause');
-		$("#PauseButton").addClass('unpause btn-success');
-		$("#PauseButton").removeClass('pause btn-secondary');
-	} else {
-		URL = document.URL;
-		URL = URL.replace("index.html", "") + "unpause";
-		$.getJSON(URL, function (data) {
-			$('#receive').text(data.cmd);
-		}
-		);
-		$("#PauseButton").text('Pause');
-		$("#PauseButton").addClass('pause btn-secondary');
-		$("#PauseButton").removeClass('unpause btn-success');
-	}
-}
-	
-// function SendUnpause()
-// {
-// 	URL = document.URL;
-// 	URL = URL.replace("index.html", "") + "unpause";
-// 	$.getJSON(URL, function(data)
-// 		{
-// 			$('#receive').text(data.cmd);
-// 		}
-// 	);
-// }
-	
-// function SendStop()
-// {
-// 	URL = document.URL;
-// 	URL = URL.replace("index.html", "") + "stop";
-// 	$.getJSON(URL, function(data)
-// 		{
-// 			$('#receive').text(data.cmd);
-// 		}
-// 	);
-// }
-	
-function SendAbort()
+
+
+function SendCommand()
 {
 	URL = document.URL;
-	URL = URL.replace("index.html", "") + "abort";
-	$.getJSON(URL, function(data)
-		{
-			$('#receive').text(data.cmd);
+	//抓取元件的ID 讓送出command 時, 可以綁定關鍵字
+	commandX = $(this).attr("id");
+	URL = URL.replace("index.html", "") + "Command?command=" + commandX;
+	$.getJSON(URL, function (data) 
+	{
+	$('#receive').text(data.cmd);
+	}
+	)
+
+	//因為按鈕有使用CSS 製造效果, 用className 綁定按鈕效果
+	if ($(this).hasClass("start") || $(this).hasClass("stop")){
+		if ($(this).hasClass("start")) {
+			$(this).text('Stop');
+			$(this).addClass('stop btn-danger');
+			$(this).removeClass('start');
+		} else {
+			$(this).text('Start');
+			$(this).addClass('start btn-primary');
+			$(this).removeClass('stop btn-danger');
 		}
-	);
+	}
+
+	if ($(this).hasClass("pause") || $(this).hasClass("unpause")){
+		if ($(this).hasClass("pause")) {
+			$(this).text('UnPause');
+			$(this).addClass('unpause btn-success');
+			$(this).removeClass('pause btn-secondary');
+		} else {
+			$(this).text('Pause');
+			$(this).addClass('pause btn-secondary');
+			$(this).removeClass('unpause btn-success');
+		}
+	}
+
+	if ($(this).hasClass("downdown") || $(this).hasClass("upup")){
+		if ($(this).hasClass("upup")){
+			$(this).bind('mousedown touchstart', function () {
+			$(this).addClass('downdown');
+			$(this).removeClass('upup');
+			})
+		}else{
+			$(this).bind('mouseup touchend', function () {
+			$(this).addClass('upup');
+			$(this).removeClass('downdown');
+			})
+		}
+	}
 }
-
-
-function mouseUpDown()
-{
-	$("#updown").bind('mousedown touchstart',function() {
-
-		$("#updown").addClass('downdown');
-		$("#updown").removeClass('upup');
-
-	})
-	$("#updown").bind('mouseup touchend',function(){
-
-		$("#updown").addClass('upup');
-		$("#updown").removeClass('downdown');
-
-	})
-
-}
-
 
